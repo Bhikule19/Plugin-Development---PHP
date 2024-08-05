@@ -28,10 +28,15 @@ class AreYouPayingAttention {
   }
 
   function theHTML($attributes) {
+    if (!is_admin()) {
+      wp_enqueue_script('attentionFrontend', plugin_dir_url(__FILE__) . 'build/frontend.js', array('wp-element'));
+      wp_enqueue_style('attentionFrontendStyles', plugin_dir_url(__FILE__) . 'build/frontend.css');
+    }    
+
     ob_start(); ?>
-    <h4>Today the sky is <?php echo esc_html($attributes['skyColor']) ?> and the grass is <?php echo esc_html($attributes['grassColor']) ?>!</h4>
- <?php return ob_get_clean();
-   }
+    <div class="paying-attention-update-me"><pre style="display: none;" ><?php echo wp_json_encode($attributes) ?></pre></div>
+    <?php return ob_get_clean();
+  }
 }
 
 $areYouPayingAttention = new AreYouPayingAttention();

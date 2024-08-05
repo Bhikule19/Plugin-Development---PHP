@@ -1,3 +1,4 @@
+import "./index.scss";
 import {
   TextControl,
   Flex,
@@ -5,8 +6,16 @@ import {
   FlexItem,
   Button,
   Icon,
+  PanelBody,
+  PanelRow,
+  ColorPicker,
 } from "@wordpress/components";
-import "./index.scss";
+import {
+  InspectorControls,
+  BlockControls,
+  AlignmentToolbar,
+} from "@wordpress/block-editor";
+import { ChromePicker } from "react-color";
 
 (function () {
   let locked = false;
@@ -42,6 +51,18 @@ wp.blocks.registerBlockType("ourplugin/are-you-paying-attention", {
     question: { type: "string" },
     answers: { type: "array", default: [""] },
     correctAnswer: { type: "number", default: undefined },
+    bgColor: { type: "string", default: "#EBEBEB" },
+    theAlignment: { type: "string", default: "left" },
+  },
+  description: "Give your audience a chance to prove their comprehension.",
+  example: {
+    attributes: {
+      question: "What is my name?",
+      correctAnswer: 3,
+      answers: ["Meowsalot", "Barksalot", "Purrsloud", "Brad"],
+      theAlignment: "center",
+      bgColor: "#CFE8F1",
+    },
   },
   edit: EditComponent,
   save: function (props) {
@@ -55,7 +76,7 @@ function EditComponent(props) {
   }
 
   function deleteAnswer(indexToDelete) {
-    const newAnswers = props.attributes.answers.filter((x, index) => {
+    const newAnswers = props.attributes.answers.filter(function (x, index) {
       return index != indexToDelete;
     });
     props.setAttributes({ answers: newAnswers });
@@ -70,7 +91,27 @@ function EditComponent(props) {
   }
 
   return (
-    <div className="paying-attention-edit-block">
+    <div
+      className="paying-attention-edit-block"
+      style={{ backgroundColor: props.attributes.bgColor }}
+    >
+      <BlockControls>
+        <AlignmentToolbar
+          value={props.attributes.theAlignment}
+          onChange={(x) => props.setAttributes({ theAlignment: x })}
+        ></AlignmentToolbar>
+      </BlockControls>
+      <InspectorControls>
+        <PanelBody title="Background Color" initialOpen={true}>
+          <PanelRow>
+            <ChromePicker
+              color={props.attributes.bgColor}
+              onChangeComplete={(x) => props.setAttributes({ bgColor: x.hex })}
+              disableAlpha={true}
+            ></ChromePicker>
+          </PanelRow>
+        </PanelBody>
+      </InspectorControls>
       <TextControl
         label="Question:"
         value={props.attributes.question}
@@ -78,26 +119,22 @@ function EditComponent(props) {
         style={{ fontSize: "20px" }}
       />
       <p style={{ fontSize: "13px", margin: "20px 0 8px 0" }}>Answers:</p>
-      {props.attributes.answers.map((answer, index) => {
+      {props.attributes.answers.map(function (answer, index) {
         return (
           <Flex>
             <FlexBlock>
               <TextControl
+                autoFocus={answer === undefined}
                 value={answer}
                 onChange={(newValue) => {
-                  const newAnswers = props.setAttributes.answers.concat([]);
+                  const newAnswers = props.attributes.answers.concat([]);
                   newAnswers[index] = newValue;
                   props.setAttributes({ answers: newAnswers });
                 }}
-                autoFocus={answer == undefined}
               />
             </FlexBlock>
             <FlexItem>
-              <Button
-                onClick={() => {
-                  markAsCorrect(index);
-                }}
-              >
+              <Button onClick={() => markAsCorrect(index)}>
                 <Icon
                   className="mark-as-correct"
                   icon={
@@ -112,9 +149,7 @@ function EditComponent(props) {
               <Button
                 isLink
                 className="attention-delete"
-                onClick={() => {
-                  deleteAnswer(index);
-                }}
+                onClick={() => deleteAnswer(index)}
               >
                 Delete
               </Button>
