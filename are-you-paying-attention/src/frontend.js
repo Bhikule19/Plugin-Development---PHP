@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   divsToUpdate.forEach(function (div) {
     const data = JSON.parse(div.querySelector("pre").innerHTML);
-    console.log(data);
+    console.log("This is the parsed data", data);
     // Create a root node and render the component there
     const root = ReactDOM.createRoot(div);
     root.render(<Quiz {...data} />);
