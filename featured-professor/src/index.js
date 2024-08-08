@@ -74,7 +74,7 @@ function EditComponent(props) {
           onChange={(e) => props.setAttributes({ profId: e.target.value })}
         >
           <option value="">
-            {__("Select a professor", "featured-professsor")}
+            {__("Select a professor", "featured-professor")}
           </option>
           {allProfs.map((prof) => {
             return (

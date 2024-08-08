@@ -59,7 +59,7 @@ get_header(); ?>
   <?php 
     if (current_user_can('administrator')) { ?>
       <form action="<?php echo esc_url(admin_url('admin-post.php')) ?>" class="create-pet-form" method="POST">
-        <p>Enter just the name for a new pet. Its species, weight, and other details with be randomly generated.</p>
+        <p><?php echo __('Enter just the name for a new pet. Its species, weight, and other details with be randomly generated.', 'wndtdomain') ?></p>
         <input type="hidden" name="action" value="createpet">
         <input type="text" name="incomingpetname" placeholder="name...">
         <button>Add Pet</button>

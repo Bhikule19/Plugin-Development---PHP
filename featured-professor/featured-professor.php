@@ -5,7 +5,7 @@
   Version: 1.0
   Author: Abhishek
   Author URI: https://github.com/Bhikule
-  Text Domain: featured-professsor
+  Text Domain: featured-professor
   Domain Path: /languages
 */
 

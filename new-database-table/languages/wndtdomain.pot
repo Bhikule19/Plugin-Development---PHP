@@ -1,0 +1,31 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Pet Adoption (New DB Table)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-08 06:13+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.11; wp-6.6.1\n"
+"X-Domain: wndtdomain"
+
+#. Author of the plugin
+msgid "Abhishek"
+msgstr ""
+
+#: inc/template-pets.php:62
+msgid ""
+"Enter just the name for a new pet. Its species, weight, and other details "
+"with be randomly generated."
+msgstr ""
+
+#. Name of the plugin
+msgid "Pet Adoption (New DB Table)"
+msgstr ""

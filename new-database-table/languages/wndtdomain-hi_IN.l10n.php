@@ -1,0 +1,3 @@
+<?php
+return ['project-id-version'=>'Pet Adoption (New DB Table)','report-msgid-bugs-to'=>'','pot-creation-date'=>'2024-08-08 06:13+0000','po-revision-date'=>'2024-08-08 06:15+0000','last-translator'=>'Abhishek','language-team'=>'Hindi','language'=>'hi_IN','plural-forms'=>'nplurals=2; plural=n != 1;','mime-version'=>'1.0','content-type'=>'text/plain; charset=UTF-8','content-transfer-encoding'=>'8bit','x-generator'=>'Loco https://localise.biz/','x-loco-version'=>'2.6.11; wp-6.6.1','x-domain'=>'wndtdomain','messages'=>['Abhishek'=>'अभिषेक
+','Enter just the name for a new pet. Its species, weight, and other details with be randomly generated.'=>'नए पालतू जानवर का केवल नाम दर्ज करें। इसकी प्रजाति, वजन और अन्य विवरण यादृच्छिक रूप से उत्पन्न किए जाएंगे।']];

@@ -5,6 +5,8 @@
   Version: 1.0
   Author: Abhishek
   Author URI: 
+  Text Domain: wndtdomain
+  Domain Path: /Languages
 */
 
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -26,6 +28,11 @@ class PetAdoptionTablePlugin {
     add_action('admin_post_nopriv_deletepet', array($this, 'deletePet'));
     add_action('wp_enqueue_scripts', array($this, 'loadAssets'));
     add_filter('template_include', array($this, 'loadTemplate'), 99);
+    add_action('init', [$this, 'languages']);
+  }
+
+  function languages() {
+    load_plugin_textdomain('wndtdomain', false, dirname(plugin_basename(__FILE__)) . '/languages');
   }
 
   function deletePet() {

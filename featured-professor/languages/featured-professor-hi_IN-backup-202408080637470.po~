@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Featured Professor Block Type\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-08 06:37+0000\n"
+"PO-Revision-Date: 2024-08-08 06:37+0000\n"
+"Last-Translator: Abhishek\n"
+"Language-Team: हिन्दी\n"
+"Language: hi_IN\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.11; wp-6.6.1\n"
+"X-Domain: featured-professor"
+
+#. Author of the plugin
+msgid "Abhishek"
+msgstr ""
+
+#. Name of the plugin
+msgid "Featured Professor Block Type"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://github.com/Bhikule"
+msgstr ""
+
+#: build/index.js:196 src/index.js:77
+msgid "Select a professor"
+msgstr ""
